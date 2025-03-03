@@ -1,0 +1,678 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.maindiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.Maindiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem
+}
+
+.TableDiv1 {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1%;
+  margin-bottom: 10px;
+}
+
+
+.buttons3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94%;
+  gap: 1%;
+  margin-top: 1rem;
+
+}
+
+.buttons2 {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94%;
+  gap: 1%;
+
+}
+
+.LinkParent {
+  
+  background: rgb(51, 169, 223);
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  border-bottom: 2px solid black;
+}
+
+.Links {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  padding: 2rem;
+}
+
+.PropertyLink img {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.Links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.Links a:hover {
+  transform: scale(1.1);
+
+}
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ZoneLink {
+  display: flex;
+  justify-content: space-around;
+
+  background: rgb(51, 169, 223);
+  font-weight: 700;
+  border-top: 2px solid black;
+}
+
+.ZoneLink2 {
+  display: flex;
+  justify-content: space-around;
+  background: rgb(51, 169, 223);
+  font-weight: 700;
+  padding: 1rem;
+
+}
+
+.ZoneLink a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s;
+}
+
+.ZoneLink a:hover {
+  transform: scale(1.2);
+
+}
+
+.ZoneLink2 a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s;
+}
+
+.ZoneLink2 a:hover {
+  transform: scale(1.1);
+
+}
+
+.ZoneLink img {
+  background-color: palegoldenrod;
+}
+
+/* home page */
+.PARENTHERO {
+  height: 100%;
+  margin-top: 9.5rem;
+}
+
+body {
+  background-color: white;
+  scroll-behavior: smooth;
+}
+
+.Image {
+  background-image: url(./Assests/indore.jpeg);
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: background-image 1s;
+
+}
+
+.WELCOME {
+  width: 100%;
+  background-image: url(./Assests/backpicture.jpg);
+  height: 73vh;
+  padding-top: 2rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.PCM {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.PriceSection {
+  width: 100%;
+  background: rgb(51, 169, 223);
+  height: 73vh;
+  display: flex;
+  align-items: center;
+}
+
+.CM {
+  transform: scaleX(-1);
+}
+
+.Price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(51, 169, 223);
+}
+
+.car {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+}
+
+.p {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+}
+
+.tv {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+
+}
+
+.PHeading {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+
+}
+
+.Super {
+
+  border-top: 2px solid black;
+  height: 55vh;
+
+}
+
+.Super3 {
+  border-top: 2px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.Superw3 {
+  border-top: 1px solid black;
+  width: 100%;
+  height: 80vh;
+}
+
+.Super2 {
+  border-top: 2px solid black;
+  width: 100%;
+  height: 80vh;
+}
+
+.headdiv {
+  margin-top: 0px;
+}
+
+.Super5 {
+  margin-top: 12.5rem;
+
+
+}
+
+.Super5 .active {
+  background-color: palegoldenrod;
+}
+
+.Super4 .active {
+  background-color: palegoldenrod;
+}
+
+.ZoneHeading {
+  background: rgb(53, 164, 244);
+  color: black;
+  width: 100%;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.logox {
+  width: 250px;
+  margin-top: 20px;
+}
+
+
+
+.imclogo {
+  width: 20rem;
+}
+
+.firste {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.PropertyLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.P {
+  display: flex;
+  justify-content: space-around;
+}
+
+.IMC {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+a {
+  height: fit-content;
+}
+
+.MainHeading {
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* background-image: url(bright-yellow-background-with-triangle-pattern_1017-33837.avif); */
+  background: rgb(53, 164, 244);
+  margin-bottom: 0px;
+  padding: 3px;
+  width: 100%;
+}
+
+.ParentDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url(beautiful-tricolor-indian-flag-wave-theme-background_1035-22140.avif); */
+  background-image: url(./Assests/backpicture.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.H {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Div1 {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.Div2 {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: blanchedalmond;
+  text-align: center;
+  font-size: larger;
+  font-weight: 700;
+}
+
+
+.subdivs {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+.input {
+  margin-left: 10px;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+
+
+.subdivs2 {
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+
+}
+
+.SecondParentDiv {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+.SecondDiv1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 3rem;
+  /* background-image: url(beautiful-tricolor-indian-flag-wave-theme-background_1035-22140.avif); */
+  background-image: url(./Assests/backpicture.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.SecondTableDiv2 {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+.thirdParentDiv2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-image: url(./Assests/backpicture.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.ThirdDiv1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+
+}
+
+.ThirdDiv2 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 700px;
+
+}
+
+.subdivs3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+
+}
+
+.Heading2 {
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  text-shadow: 2px 2px black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(218, 42, 11, 0.969);
+}
+
+.Heading {
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.waterHeading {
+  font-weight: 900;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+Button:active {
+  transform: translateY(-3px);
+  transition: 0.2s;
+}
+
+.Links .active {
+  background-color: palegoldenrod;
+}
+
+.Link {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.ZoneDiv {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  background-image: url(./Assests/backpicture.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.parastyle {
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.Div {
+  height: 240px;
+  width: 240px;
+  background-color: rgb(0, 0, 255);
+  border-radius: 50%;
+
+}
+
+.custom-table td {
+  border: 2px solid black;
+}
+
+.Generate {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.Generate Button {
+  font-weight: 700;
+}
+
+.GenerateDiv {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* main.css */
+
+.Maindiv {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  margin-top: 10rem;
+  justify-content: center;
+
+}
+
+.Signup_page {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: rgb(53, 164, 244);
+  width: 30%;
+  border: 2px solid black;
+  box-shadow: 1px 1px 5px black;
+}
+
+form input {
+  border: 1px solid black;
+  width: 50%;
+}
+
+.FormDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FormDiv input {
+  width: 70%;
+}
+
+#div2 {
+  justify-content: space-around;
+}
+
+#div4 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+}
+
+.TableDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.List ul {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+
+}
+
+.List li {
+  list-style-type: none;
+  width: 100%;
+  /* border: 2px solid rgb(53, 144, 230); */
+  border: 2px solid black;
+  text-align: center;
+  padding: 0.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.passworddiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+
+}
+
+.passworddiv input {
+  margin-left: 1.5rem;
+}
