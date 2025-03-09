@@ -1,36 +1,56 @@
 const express = require("express");
 require("./dbconnect2.js");
+const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const database1 = require("./PropertyAdvance.js"); //get property
-const database = require("./Zone(1-19).js"); //get zone
-const Winners = require("./propertywinners.js"); //post winners
-const ExcelJS = require("exceljs"); //excel
-const Author = require("./Author.js"); //get author
-const Water = require("./WaterAdvance.js"); //get water
-const WaterWinners = require("./waterwinners.js"); //post water
+const PropertyAdvance = mongoose.model(
+  "PropertyAdvance",
+  new mongoose.Schema({}, { strict: false }),
+  "PropertyAdvance"
+);
 
-//get property
+const Zones = mongoose.model(
+  "Pzones",
+  new mongoose.Schema({}, { strict: false }),
+  "Pzones"
+);
+const WaterAdvance = mongoose.model(
+  "WaterAdvance",
+  new mongoose.Schema({}, { strict: false }),
+  "WaterAdvance"
+);
+const ExcelJS = require("exceljs"); //excel
+
+// add winners to database
+const Winners = require("./schema/propertywinners.js"); //post winners
+const WaterWinners = require("./schema/waterwinners.js"); //post water
+
+//get property 1 2 3 winners
 app.get("/search1/:key", async (req, resp) => {
-  const key = req.params.key;
-  let result = await database1.find({ SR_NO: key });
-  resp.send(result);
+  const key = Number(req.params.key);
+  try {
+    let result = await PropertyAdvance.find({ SR_NO: key });
+    resp.send(result);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    resp.status(500).send("Internal Server Error");
+  }
 });
 
-//get zone
+//get property zone winners
 app.get("/search2/:key", async (req, resp) => {
   const key = req.params.key;
-  let result = await database.find({ SR_NO: key });
+  let result = await Zones.find({ SR_NO: key });
   resp.send(result);
 });
 
 //get water
 app.get("/search3/:key", async (req, resp) => {
   const key = req.params.key;
-  let result = await Water.find({ SR_NO: key });
+  let result = await WaterAdvance.find({ SR_NO: key });
   resp.send(result);
 });
 
@@ -68,249 +88,75 @@ app.post("/third/:srno", async (req, resp) => {
 });
 
 //property zones post
-app.post("/Forth/Zone1/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 1 winner" } }
-  );
-  resp.send(result);
-});
+app.post("/Forth/Zone/:zoneNumber/:srno", async (req, resp) => {
+  try {
+    const { zoneNumber, srno } = req.params;
+    const result = await Winners.insertMany(req.body);
 
-app.post("/Forth/Zone2/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 2 winner" } }
-  );
-  resp.send(result);
-});
+    await Winners.updateMany(
+      { SR_NO: srno },
+      { $set: { POSITION: `Zone ${zoneNumber} winner` } }
+    );
 
-app.post("/Forth/Zone3/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 3 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone4/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 4 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone5/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 5 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone6/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 6 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone7/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = awaitWinners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 7 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone8/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = awaitWinners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 8 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone9/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = awaitWinners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 9 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone10/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 10 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone11/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 11 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone12/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 12 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone13/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 13 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone14/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 14 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone15/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Zone15.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 15 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone16/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 16 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone17/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 17 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone18/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 18 winner" } }
-  );
-  resp.send(result);
-});
-
-app.post("/Forth/Zone19/:srno", async (req, resp) => {
-  const srno = req.params.srno;
-  let result = await Winners.insertMany(req.body);
-  await Winners.updateMany(
-    { SR_NO: srno },
-    { $set: { POSITION: "Zone 19 winner" } }
-  );
-  resp.send(result);
+    resp
+      .status(201)
+      .json({ message: `Winners added for Zone ${zoneNumber}`, result });
+  } catch (error) {
+    console.error("Error:", error);
+    resp.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.get("/GenerateExcel", async (req, resp) => {
   try {
     const data = await Winners.find({});
 
-    // Create a new workbook
     const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet("Sheet 1");
+    const worksheet = workbook.addWorksheet("Winners Data");
 
-    // Define column headers
+    // Define column headers dynamically
     worksheet.columns = [
-      { header: "PROPERTY_ID", key: "PROPERTY_ID", width: 15 },
-      { header: "PROPERTY_OWNER_NAME", key: "PROPERTY_OWNER_NAME", width: 15 },
-      { header: "WARD", key: "WARD", width: 15 },
-      { header: "ZONE", key: "ZONE", width: 15 },
-      { header: "ASSMENTYEAR", key: "ASSMENTYEAR", width: 15 },
-      { header: "POSITION", key: "POSITION", width: 15 },
+      { header: "PARTNER", key: "PARTNER", width: 20 },
+      { header: "PROPERTY_OWNER_NAME", key: "PROPERTY_OWNER_NAME", width: 25 },
+      { header: "WARD", key: "WARD", width: 10 },
+      { header: "ZONE", key: "ZONE", width: 10 },
+      { header: "ASSESSMENT_YEAR", key: "ASSMENTYEAR", width: 15 },
+      { header: "POSITION", key: "POSITION", width: 20 },
     ];
-    // Populate the worksheet with data
+
+    // Add data rows
     data.forEach((item) => {
       worksheet.addRow({
-        PROPERTY_ID: item.PARTNER,
+        PARTNER: item.PARTNER,
         PROPERTY_OWNER_NAME: item.PROPERTY_OWNER_NAME,
         WARD: item.WARD,
         ZONE: item.ZONE,
-        ASSMENTYEAR: item.ASSMENTYEAR,
+        ASSESSMENT_YEAR: item.ASSMENTYEAR,
         POSITION: item.POSITION,
-        // Map MongoDB fields to Excel columns
       });
     });
 
-    // Save the Excel file to disk
+    // Generate Excel buffer
     const buffer = await workbook.xlsx.writeBuffer();
 
-    // Set response headers for downloading
+    // Set response headers for file download
     resp.setHeader(
       "Content-Type",
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     );
     resp.setHeader(
       "Content-Disposition",
-      "attachment; filename=mongodb-data.XLSX"
+      "attachment; filename=winners-data.xlsx"
     );
 
-    // Send the XLSX file as a response
     resp.send(Buffer.from(buffer));
   } catch (error) {
     console.error("Error:", error);
-    resp.status(500).send("Internal Server Error");
+    resp.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 //water post
-
 app.post("/waterfirst/:srno", async (req, resp) => {
   const srno = req.params.srno;
   let result = await WaterWinners.insertMany(req.body);
